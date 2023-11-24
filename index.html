@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>ChrisKen Project</title> 
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #b362a2;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .photo {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    header {
+      background-color: black;
+      color: #b362a2;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+
+    nav {
+      margin-top: 10px;
+      text-align: center;
+      position: sticky;
+      top: 60px;
+      z-index: 100;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    nav ul li a {
+      color: #FA6324;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .hero {
+      background-color: #5e1b63;
+      background-size: cover;
+      background-position: center;
+      color: #b362a2;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .hero h2 {
+      font-size: 64px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about p {
+      line-height: 1.8;
+      font-size: 20px;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .service-item {
+      background-color: #b362a2;
+      color: #FA6324;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 20px;
+      padding: 30px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .service-item img {
+      width: 80px;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-item h3 {
+      font-size: 24px;
+    }
+
+    .custom-plugin-bg {
+      background-color: #641c69;
+      color: #b362a2;
+    }
+
+    footer {
+      background-color: black;
+      color: #FA6324;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      nav ul li a {
+        font-size: 16px;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .about p {
+        font-size: 16px;
+      }
+
+      .service-item h3 {
+        font-size: 20px;
+      } 
+
+      :focus {
+        outline: none;
+      }
+
+      /* Hover effect on the image */
+      .container img:hover,
+      .container img:focus {
+        transform: scale(1.2);
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+
+    /* New CSS rule for the "Learn More" link */
+    .btn {
+      color: #b362a2;
+    }
+
+    /* Responsive video container */
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25%; /* 16:9 aspect ratio (height/width) */
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+}
+
+/* For the social media icons */
+.social-media {
+  background-color: black;
+  color: #FA6324;
+  text-align: center;
+  padding: 5px 0; /* Adjust the top and bottom padding */
+  margin-top: -60px; /* Adjust this value to control the vertical spacing */
+  margin-bottom:-25px;
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons li {
+  margin: 0 10px;
+}
+
+.social-icons li a img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+/* Additional styling for the icons, such as hover effects */
+.social-icons li a img:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
+}
+.photo-container {
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px; /* Add some padding around the photos */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center; /* Center the image within the slide */
+}
+
+.swiper-slide img {
+  width: 100%; /* Set the image width to 100% to make it responsive */
+  height: auto;
+  max-width: 90%; /* Ensure the image fits within the slide */
+  max-height: 500px; /* Set a maximum height for the images */
+  margin: 0 10px; /* Add margin to the left and right sides */
+  border-radius: 15px; /* Add border radius for rounded corners */
+}
+
+/* Modern navigation buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none; /* Hide the navigation buttons */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .swiper-slide img {
+    max-height: 700px; /* Adjust the maximum height for smaller screens */
+  }
+}
+
+  </style> 
+</head> 
+<body> 
+  <header>      
+    <img src="your-icon.png" alt="Icon" width="280" height="60">
+  </header>
+  <section id="home" class="hero"> 
+    <div class="container"> 
+      <h2>Hello, Welcome to my webpage!</h2> 
+      <p>Here's my recent project, Join us now and let's create unforgettable memories together. Get ready to dig, build, and conquer in the ultimate Minecraft experience. See you in the game!</p>
+      <a href="#services" class="btn">Learn More</a><br><br>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/bHc-h0UMKvM?si=WbhupAPug-g42Bmb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/bHc-h0UMKvM?si=WbhupAPug-g42Bmb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div> 
+  </section>
+  <section id="about" class="about"> 
+    <div class="container"> 
+      <h2>About Me</h2> 
+      <p>Hi I am Chris a 21 year old college student a person who is positive about every aspect of life. I am interested in computer literature, music, sport and fantasy literature. Computers first appeared in my life when I was seven. Then I got my first computer. I remember myself thinking, that it was the best thing in the world. I was playing it whenever I could.</p>
+
+<p>Then I got my first PC. At first, I was just playing computer games, but some time later, I noticed that I could do a lot more things with the computer, for example programming. Now, I can already be programmed in C++ and HTML. I hope that in the future I will get a job as a computer data scientist.</p> 
+    </div>       
+  </section>     
+  <section id="services" class="services">     
+    <div class="container"> 
+      <h2>My Skills</h2> 
+      <div class="service-item custom-plugin-bg"> 
+        <img src="icon1.png" alt="Icon"> 
+        <h3>Making Music</h3> 
+        Immersed in the realm of music creation, my expertise lies in crafting electrifying EDM beats that pulsate with energy. Dive into my world of electronic sounds and infectious rhythms, where every track promises an unforgettable journey on the dance floor.
+      </div> 
+      <div class="service-item custom-plugin-bg"> 
+        <img src="icon2.png" alt="Icon"> 
+        <h3>Editing Video</h3> 
+        Capturing moments and weaving stories through video is my passion. I dive into the world of visuals, crafting compelling narratives and sharing experiences that resonate. Join me on this visual journey, where every frame tells a story waiting to be explored and cherished.
+      </div> 
+        <div class="service-item custom-plugin-bg"> 
+        <img src="icon3.png" alt="Icon"> 
+        <h3>Developing Minecraft Server</h3> 
+        I'm currently immersed in the world of Minecraft server development, sculpting an immersive gaming experience. From configuring settings to fine-tuning plugins, I'm dedicated to crafting a dynamic virtual realm where players can explore, create, and thrive. Join me on this exciting journey into the realms of Minecraft adventures!
+      </div>         
+      <div class="service-item custom-plugin-bg"> 
+        <img src="icon4.png" alt="Icon"> 
+     <h3>Developing Discord Bot</h3>
+        Creating a Discord bot can be an exciting project! You'll need to use a programming language like JavaScript or Python, along with the Discord API, to build functionalities like responding to commands, managing server events, playing music, or moderating chats. Platforms like Discord.js (for JavaScript) or discord.py (for Python) offer excellent resources and documentation to help you get started with bot development.
+      </div> 
+  </section>
+  <div class="photo-container swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="picture1.png" alt="Photo 1"></div>
+      <div class="swiper-slide"><img src="picture2.png" alt="Photo 2"></div>
+      <div class="swiper-slide"><img src="picture3.png" alt="Photo 3"></div>
+      <div class="swiper-slide"><img src="picture4.png" alt="Photo 4"></div>
+    </div>
+  </div>
+  <div class="container">
+      <hr style="border-color: #641c69;">  
+    <div class="container">
+      <center><h2>Social Platform</h2></center>
+      <center><p>Click any platforms below to get in touch with me.</p></center>
+      </div>
+    </div>
+  </section>
+    <section id="social-media" class="social-media">
+      <ul class="social-icons">
+        <li><a href="https://youtube.com/@itsmekerots"><img src="yt.png" alt="YouTube"></a></li>
+        <li><a href="https://www.tiktok.com/@itsmekerots?_t=8eLBxPgFF27&_r=1"><img src="tiktok.png" alt="Tiktok"></a></li>
+        <li><a href="https://discord.com/invite/ymhAsrWgB7"><img src="dc.png" alt="Tiktok"></a></li>
+      </ul>
+    </div>
+    <div class="container">
+  </section>
+  <footer style="background-color: #5e1b63; color: #b362a2; padding: 20px 0; text-align: center; position: sticky; top: 0; z-index: 100; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 0px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="your-icon.png" alt="Icon" width="120" height="25" style="margin-bottom: 10px;">             
+      <p style="margin: 0;">© 2023 CK Project. All rights reserved.</p> 
+    </div> 
+  </footer>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const mySwiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 3000, // Adjust the delay time in milliseconds (3000 ms = 3 seconds)
+        },
+      });
+    });
+  </script>
+</body>
+</html>
